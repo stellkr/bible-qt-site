@@ -1,0 +1,213 @@
+/* 전체 페이지 기본 스타일 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 스타일 */
+header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 0;
+    background: #FF5733;
+    color: white;
+    border-radius: 10px;
+}
+
+/* 로그인 및 회원가입 버튼 스타일 */
+.auth-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-buttons .auth-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.login-button {
+    background: #9C1032;
+}
+
+.register-button {
+    background: #C02045;
+}
+
+.auth-buttons .auth-button:hover {
+    opacity: 0.8;
+}
+
+/* 검색 아래 로그인 & 회원가입 링크 정렬 */
+.auth-links {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: #FF5733;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* 로그인 및 회원가입 박스 스타일 */
+.login-box, .register-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.login-box h2, .register-box h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.login-box input, .register-box input, 
+.login-box select, .register-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-box button, .register-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-box button {
+    background: #FF5733;
+}
+
+.register-box button {
+    background: #FF5733;
+}
+
+/* 성경 검색 섹션 */
+.search {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.search h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.search select,
+.search input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background: #FF5733;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background: #b42d0f;
+}
+
+/* 검색 결과 스타일 */
+/* .results {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* .results ul {
+    list-style: none;
+    padding: 0;
+} */
+
+.results li {
+    font-size: 18px;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 메인 화면으로 돌아가기 버튼 */
+.back-to-main {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #FF5733;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background: #b42d0f;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .login-box, .register-box {
+        width: 90%;
+    }
+}

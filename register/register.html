@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>외~우리교회 고등부 회원가입</title>
+    <link href="../imge/logo.png" rel="shortcut icon" type="imge/x-icon"> <!--서버 아이콘 변경-->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 700; /* Bold 설정 */
+            background-color: #f4f4f4;
+            
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .logo {
+            max-width: 40px; /* 로고 최대 너비 */
+            margin-right: 8px; /* 로고와 제목 사이의 여백 */
+        }
+
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+            color: #000000;
+            box-shadow: 0 0 2px 1px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select[type="text"],
+        select[id="grade"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        select[type="text"],
+        select[id="class"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b42d0f;
+        }
+
+        .error-message {
+            color: #A62651;
+            display: none; /* 기본적으로 숨김 */
+            margin-top: 10px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2 class="title">외~우리교회 고등부 회원가입</h2>
+    </div>
+    <div class="error-message" id="error-message">* 내용을 제대로 입력해주세요</div>
+
+    <form id="registrationForm">
+        <label for="username">아이디</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="grade">학년</label>
+        <select id="grade" name="grade" required>
+            <option value="">선택하세요</option>
+            <option value="1학년">1학년</option>
+            <option value="2학년">2학년</option>
+            <option value="3학년">3학년</option>
+        </select>
+
+        <label for="class">반</label>
+        <select id="class" name="class" required>
+            <option value="">선택하세요</option>
+        </select>        
+
+        <button type="submit">회원가입하기</button>
+
+        <p>
+            아이디가 이미 있으신가요?
+            <a href="../login/login.html" style="text-decoration-line: none; color: #FF5733;">
+                로그인 하러 가기
+            </a>
+        </p>
+        
+        <div class="footer">
+            <p>Copyright © 와~우리교회 고등부. All Rights Reserved.</p>
+        </div>
+    
+    </form>
+</div>
+
+<!-- <script src="register.js"></script> -->
+
+<script>
+    // 학년별 반 설정
+const gradeToClassMap = {
+    "1학년": ["1반", "2반", "3반"],
+    "2학년": ["1반", "2반"],
+    "3학년": ["1반", "2반", "3반", "4반"]
+};
+
+const gradeSelect = document.getElementById('grade');
+const classSelect = document.getElementById('class');
+const errorMessage = document.getElementById('error-message');
+
+// 📌 학년 선택 시 반 목록 업데이트 (기존 옵션 초기화 후 추가)
+gradeSelect.addEventListener('change', function() {
+    const selectedGrade = gradeSelect.value;
+    classSelect.innerHTML = '<option value="">선택하세요</option>'; // 기본 옵션 추가
+
+    if (selectedGrade && gradeToClassMap[selectedGrade]) {
+        gradeToClassMap[selectedGrade].forEach(cls => {
+            let option = document.createElement('option');
+            option.value = cls;
+            option.textContent = cls;
+            classSelect.appendChild(option);
+        });
+    }
+});
+
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 기본 제출 이벤트 방지
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const name = document.getElementById('name').value;
+    const grade = gradeSelect.value;
+    const classValue = classSelect.value;
+
+    // 오류 메시지 초기화
+    errorMessage.style.display = 'none';
+    const inputFields = [username, password, name, grade, classValue];
+    const inputs = [
+        document.getElementById('username'),
+        document.getElementById('password'),
+        document.getElementById('name'),
+        gradeSelect,
+        classSelect
+    ];
+
+    let hasError = false;
+    const errorMessages = [];
+
+    // 입력값 검사
+    inputs.forEach((input, index) => {
+        if (!inputFields[index]) {
+            input.classList.add('error');
+            hasError = true;
+            errorMessages.push(`${inputs[index].previousElementSibling.textContent} 필드를 입력하세요.`);
+        } else {
+            input.classList.remove('error');
+        }
+    });
+
+    // 아이디 유효성 검사
+    if (username.length < 6 || /[\u3131-\u3163\uac00-\ud7a3]/.test(username)) {
+        errorMessages.push('아이디는 6글자 이상이어야 하며 한글을 포함할 수 없습니다.');
+        hasError = true;
+    }
+
+    // 비밀번호 유효성 검사
+    if (password.length < 6) {
+        errorMessages.push('비밀번호는 6글자 이상이어야 합니다.');
+        hasError = true;
+    }
+
+    // 비밀번호 기호 포함 여부 검사
+    const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
+    if (!specialCharPattern.test(password)) {
+        errorMessages.push("비밀번호는 하나 이상의 기호를 포함해야 합니다.");
+        hasError = true;
+    }
+
+    if (!/[a-z]/.test(password)) {
+        errorMessages.push("비밀번호는 최소 하나의 영문자를 포함해야 합니다.");
+        hasError = true;
+    }
+    if (!/[0-9]/.test(password)) {
+        errorMessages.push("비밀번호는 최소 하나의 숫자를 포함해야 합니다.");
+        hasError = true;
+    }
+
+    if (hasError) {
+        errorMessage.innerHTML = errorMessages.join('<br>');
+        errorMessage.style.display = 'block';
+    } else {
+        const data = {
+            username,
+            password,
+            name,
+            grade,
+            class: classValue
+        };
+
+        fetch('http://localhost/register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === '회원가입이 완료되었습니다') {
+                alert('회원가입이 완료되었습니다.');
+                setTimeout(() => {
+                    window.location.href = '../login/login.html';
+                }, 1000);
+            } else {
+                errorMessage.innerHTML = data.message;
+                errorMessage.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+});
+
+</script>
+
+</body>
+</html>

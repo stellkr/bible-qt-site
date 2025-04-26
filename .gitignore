@@ -1,0 +1,31 @@
+# 서버 설정 파일
+.env
+.htaccess
+
+# 에디터 및 IDE 설정 폴더
+.vscode/
+.idea/
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+
+# 백업 및 임시 파일
+*.bak
+*.tmp
+*.swp
+
+# 로그 파일
+*.log
+
+# 업로드/파일 저장 디렉토리 (필요시)
+uploads/
+upload/
+files/
+
+# Node.js 패키지 폴더 (혹시 JS 라이브러리 추가 사용시)
+node_modules/
+
+# PHP 패키지 매니저 (Composer) 폴더
+vendor/
+composer.lock

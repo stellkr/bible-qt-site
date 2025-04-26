@@ -1,0 +1,72 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700; /* Bold 설정 */
+    background-color: #f4f4f4;
+    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo {
+    max-width: 40px; /* 로고 최대 너비 */
+    margin-right: 8px; /* 로고와 제목 사이의 여백 */
+}
+
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    color: #000000;
+    box-shadow: 0 0 2px 1px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b42d0f;
+}
+
+.error-message {
+    color: #A62651;
+    display: none; /* 기본적으로 숨김 */
+    margin-top: 10px;
+}
+
