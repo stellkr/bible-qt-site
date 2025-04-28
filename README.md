@@ -14,6 +14,7 @@
 - JavaScript
 - PHP
 - MySQL
+- MariaDB
 
 ---
 
