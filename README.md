@@ -45,7 +45,7 @@
 | `banned_users` | 차단된 사용자 목록 |
 
 > **초기 관리자 계정**  
-> ID: `admin` / Password: **admin1234**
+> ID: `admin` / Password: `admin1234`
 
 ---
 
